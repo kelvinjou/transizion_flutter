@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/button/gf_icon_button.dart';
+import 'package:getwidget/shape/gf_icon_button_shape.dart';
 import 'package:provider/provider.dart';
 import 'package:transizion_flutter/completions_api.dart';
 import 'package:transizion_flutter/view_user_input.dart';
@@ -41,63 +43,105 @@ class _CountState extends State<Count> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: FutureBuilder<String>(
-        future: context.watch<Counter>().hasSubmitted
-            ? Counter().runGPTModel("h", "p")
-            : null,
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-              return Text(
-                "Press button to start",
-                style: TextStyle(fontWeight: FontWeight.bold),
-                );
-            case ConnectionState.waiting:
-              return Center(
-                child: Lottie.asset(
-                  'assets/images/lottieCircularProgress.json',
-                  height: 150,
-                  width: 150
-                  ),
-              );
-              // Text(
-              //   'Awaiting result',
-              //   style: TextStyle(fontWeight: FontWeight.bold),
-              //   );
-            default:
-              if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              } else {
-                return Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Text(
-                    '${snapshot.data}',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      height: 1.5,
+        child: FutureBuilder<String>(
+            future: context.watch<ModelStateManagement>().hasSubmitted
+                ? ModelStateManagement().runGPTModel("h", "p")
+                : null,
+            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return Text(
+                    "Press button to start",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  );
+                case ConnectionState.waiting:
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Lottie.asset(
+                            'assets/images/lottieCircularProgress.json',
+                            height: 150,
+                            width: 150),
+                        Text("Generating Ideas",
+                            style: TextStyle(
+                                fontSize: 22.0, fontWeight: FontWeight.bold))
+                      ],
                     ),
-                    ),
-                );
+                  );
+                // Text(
+                //   'Awaiting result',
+                //   style: TextStyle(fontWeight: FontWeight.bold),
+                //   );
+                default:
+                  Future.delayed(const Duration(seconds: 10), () {
+                    context.read<ModelStateManagement>().canRestart = true;
+                  });
+
+                  if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    return 
+                      Stack(children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Align(
+                                alignment: Alignment.bottomRight,
+                                child: context.read<ModelStateManagement>().canRestart ? GFIconButton(
+                                  onPressed: () { },
+                                  icon: Icon(Icons.refresh_rounded),
+                                  shape: GFIconButtonShape.circle,
+                                  color: const Color.fromRGBO(62, 105, 178, 0.7)
+                                ) : null,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(25.0),
+                            child: Text(
+                              '${snapshot.data}',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                height: 1.5,
+                              ),
+                            ),
+                          ),
+                        )
+                      ]);
+                    
+                  }
               }
-          }
-        },
-      ),
-    );
+            }));
   }
 }
 
-class Counter with ChangeNotifier {
+class ModelStateManagement with ChangeNotifier {
   int _count = 0;
   int get count => _count;
   bool _hasSubmitted = false;
   bool get hasSubmitted => _hasSubmitted;
 
+  bool _canRestart = false;
+  bool get canRestart => _canRestart;
+  set canRestart(bool value) {
+    _canRestart = value;
+  }
+
   static String hobbies = "";
   static String passions = "";
   static String socialIssue = "";
+  static String careerPath = "";
 
   Future<String> runGPTModel(String hobbies, String passions) async {
-    final res = await CompletionsAPI.generatePassionProjectIdea(hobbies, passions, socialIssue);
+    final res = await CompletionsAPI.generatePassionProjectIdea(
+        hobbies, passions, socialIssue, careerPath);
     return res.choices![0]['text'];
   }
 
@@ -107,7 +151,7 @@ class Counter with ChangeNotifier {
   }
 
   void restart() {
-    _count = 0;
+    _canRestart = !_canRestart;
     notifyListeners();
   }
 }

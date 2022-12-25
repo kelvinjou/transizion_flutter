@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => Counter(),
+          create: (_) => ModelStateManagement(),
         )
       ],
       child: MaterialApp(
