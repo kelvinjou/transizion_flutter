@@ -31,7 +31,7 @@ class CompletionsAPI {
         model: 'text-davinci-003',
         prompt: prompt,
         temperature: 0.6,
-        maxTokens: 1, //3354
+        maxTokens: 3354,
         topP: 0.77,
         frequencyPenalty: 0,
         presencePenalty: 1.6);

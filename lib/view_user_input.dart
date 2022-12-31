@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
 import 'package:transizion_flutter/view_output_connector.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 // ignore: unused_import
 class ViewUserInput extends StatefulWidget {
@@ -15,10 +16,10 @@ class ViewUserInput extends StatefulWidget {
 
 class ViewUserInputState extends State<ViewUserInput> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController hobbiesController = TextEditingController();
-  final TextEditingController passionController = TextEditingController();
-  final TextEditingController careerPathController = TextEditingController();
-  final TextEditingController socialIssueController = TextEditingController();
+  static TextEditingController hobbiesController = TextEditingController();
+  static TextEditingController passionController = TextEditingController();
+  static TextEditingController careerPathController = TextEditingController();
+  static TextEditingController socialIssueController = TextEditingController();
   bool hobbiesFilledOut = false;
   bool passionsFilledOut = false;
   bool careerPathFilledOut = false;
@@ -29,9 +30,26 @@ class ViewUserInputState extends State<ViewUserInput> {
   static String careerPath = "";
   static String socialIssue = "";
 
+  String? selectedValue;
+
+
+  final List<String> paths = [
+    "Business and finance",
+    "Education",
+    "Health care",
+    "Technology",
+    "Art and design",
+    "Communications and media",
+    "Law and criminal justice",
+    "Science, engineering, and math",
+    "Social services",
+    "Hospitality and tourism",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(204, 204, 204, 1.0),
       body: Form(
         key: formKey,
         child: Stack(
@@ -60,9 +78,14 @@ class ViewUserInputState extends State<ViewUserInput> {
                         });
                       },
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(62, 105, 178, 0.85),
+                                  width: 2.2)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(color: Colors.grey)),
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[800]),
                           hintText: "Hobbies",
@@ -91,9 +114,14 @@ class ViewUserInputState extends State<ViewUserInput> {
                         });
                       },
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(62, 105, 178, 0.85),
+                                  width: 2.2)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(color: Colors.grey)),
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[800]),
                           hintText: "Passions",
@@ -122,9 +150,14 @@ class ViewUserInputState extends State<ViewUserInput> {
                         });
                       },
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(62, 105, 178, 0.85),
+                                  width: 2.2)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              borderSide: BorderSide(color: Colors.grey)),
                           filled: true,
                           hintStyle: TextStyle(color: Colors.grey[800]),
                           hintText: "Career path (Optional)",
@@ -155,9 +188,14 @@ class ViewUserInputState extends State<ViewUserInput> {
                             });
                           },
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  borderSide: BorderSide(
+                                      color: Color.fromRGBO(62, 105, 178, 0.85),
+                                      width: 2.2)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  borderSide: BorderSide(color: Colors.grey)),
                               filled: true,
                               hintStyle: TextStyle(color: Colors.grey[800]),
                               hintText: "Social Issues (Optional)",
@@ -193,7 +231,14 @@ class ViewUserInputState extends State<ViewUserInput> {
                       }
                     },
                     text: "Generate Passion Project",
-                    textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      // color: hobbiesFilledOut == true &&
+                      //         passionsFilledOut == true
+                      //     ? Colors.white70
+                      //     : Colors.black,
+                      //     letterSpacing: 0.7
+                    ),
                     textColor:
                         hobbiesFilledOut == true && passionsFilledOut == true
                             ? Colors.white
@@ -208,6 +253,111 @@ class ViewUserInputState extends State<ViewUserInput> {
                             : const Color.fromRGBO(157, 191, 252, 0.7),
                     size: GFSize.LARGE,
                   ),
+
+                  // testing multi-select dropdown
+                  // Container(
+                  //   width: 300,
+                  //   height: 200,
+                  //   child: GFMultiSelect(
+                  //     items: const [
+                  //       "Business and finance",
+                  //       "Education",
+                  //       "Health care",
+                  //       "Technology",
+                  //       "Art and design",
+                  //       "Communications and media",
+                  //       "Law and criminal justice",
+                  //       "Science, engineering, and math",
+                  //       "Social services",
+                  //       "Hospitality and tourism",
+                  //     ],
+                  //     onSelect: (value) {
+                  //       debugPrint('selected $value ');
+                  //     },
+                  //     dropdownTitleTileText: 'Messi, Griezmann, Coutinho ',
+                  //     dropdownTitleTileBorder: Border.all(color: Colors.grey, width: 1),
+                  //     dropdownTitleTileTextStyle:
+                  //         const TextStyle(fontSize: 14, color: Colors.black54),
+                  //     padding: const EdgeInsets.all(6),
+                  //     dropdownTitleTileBorderRadius: BorderRadius.circular(20),
+                  //     margin: const EdgeInsets.all(6),
+                  //     type: GFCheckboxType.circle,
+                  //     activeBgColor: Colors.green.withOpacity(0.5),
+                  //   ),
+                  // )
+
+                  DropdownButtonHideUnderline(
+        child: DropdownButton2(
+          isExpanded: true,
+          hint: Row(
+            children: const [
+              Expanded(
+                child: Text(
+                  'Select Item',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
+          items: paths
+                  .map((item) =>
+                  DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(
+                      item,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ))
+                  .toList(),
+          value: selectedValue,
+          onChanged: (value) {
+            setState(() {
+              selectedValue = value as String;
+            });
+          },
+          icon: const Icon(
+            Icons.arrow_forward_ios_outlined,
+          ),
+          iconSize: 14,
+          iconEnabledColor: Colors.black,
+          // iconDisabledColor: Colors.grey,
+          buttonHeight: 50,
+          buttonWidth: 400,
+          buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+          buttonDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            // border: Border.all(
+            //   color: Colors.black26,
+            // ),
+            color: Colors.white,
+          ),
+          buttonElevation: 2,
+          itemHeight: 40,
+          itemPadding: const EdgeInsets.only(left: 14, right: 14),
+          dropdownMaxHeight: 275,
+          dropdownWidth: 350,
+          dropdownPadding: null,
+          dropdownDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            // color: Colors.redAccent,
+          ),
+          dropdownElevation: 8,
+          scrollbarRadius: const Radius.circular(40),
+          scrollbarThickness: 6,
+          scrollbarAlwaysShow: false,
+          offset: const Offset(20, 0),
+        ),
+      ),
                 ],
               ),
             ),
@@ -222,7 +372,7 @@ class ViewUserInputState extends State<ViewUserInput> {
       top: 0.0,
       left: 0.0,
       child: Padding(
-        padding: const EdgeInsets.all(0.0),
+        padding: const EdgeInsets.only(left: 20.0),
         child: Row(
           children: [
             Image.asset(
@@ -233,11 +383,9 @@ class ViewUserInputState extends State<ViewUserInput> {
             SizedBox(width: 20),
             Text("Passion Project Generator",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.0,
-                  color: const Color.fromRGBO(62, 105, 178, 1.0)
-                  )
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.0,
+                    color: const Color.fromRGBO(62, 105, 178, 1.0))),
           ],
         ),
       ),

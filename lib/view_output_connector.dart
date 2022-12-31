@@ -14,7 +14,7 @@ class ViewOutputConnector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[100],
+      backgroundColor: Color.fromRGBO(65, 105, 178, 1.0),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -40,13 +40,32 @@ class Count extends StatefulWidget {
 }
 
 class _CountState extends State<Count> {
+  Future<String>? future;
+  // cuz initState only runs on startup, won't run when it setState
+  @override
+  void initState() {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      // Provider.of<ModelStateManagement>(context, listen: false);
+      if (context.watch<ModelStateManagement>().hasSubmitted) {
+        future = ModelStateManagement().runGPTModel();
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (context.watch<ModelStateManagement>().hasSubmitted) {
+      future = ModelStateManagement().runGPTModel();
+    }
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
         child: FutureBuilder<String>(
-            future: context.watch<ModelStateManagement>().hasSubmitted
-                ? ModelStateManagement().runGPTModel("h", "p")
-                : null,
+            future: future,
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -75,47 +94,68 @@ class _CountState extends State<Count> {
                 //   style: TextStyle(fontWeight: FontWeight.bold),
                 //   );
                 default:
-                  Future.delayed(const Duration(seconds: 10), () {
-                    context.read<ModelStateManagement>().canRestart = true;
+                  Future.delayed(const Duration(seconds: 5), () {
+                    setState(() {
+                      context.read<ModelStateManagement>().canRestart = true;
+                    });
                   });
 
                   if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   } else {
-                    return 
-                      Stack(children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(25.0),
-                              child: Align(
-                                alignment: Alignment.bottomRight,
-                                child: context.read<ModelStateManagement>().canRestart ? GFIconButton(
-                                  onPressed: () { },
-                                  icon: Icon(Icons.refresh_rounded),
-                                  shape: GFIconButtonShape.circle,
-                                  color: const Color.fromRGBO(62, 105, 178, 0.7)
-                                ) : null,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Center(
-                          child: Padding(
+                    return Stack(children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Padding(
                             padding: const EdgeInsets.all(25.0),
-                            child: Text(
-                              '${snapshot.data}',
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                height: 1.5,
-                              ),
+                            child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: context
+                                      .read<ModelStateManagement>()
+                                      .canRestart
+                                  ? GFIconButton(
+                                      onPressed: () {
+                                        // setState(() {
+                                        //   ViewUserInputState
+                                        //       .hobbiesController.clear;
+                                        //   ViewUserInputState
+                                        //       .passionController.clear;
+                                        //   ViewUserInputState
+                                        //       .careerPathController.clear;
+                                        //   ViewUserInputState
+                                        //       .socialIssueController.clear;
+
+                                        //   ModelStateManagement.hobbies = "";
+                                        //   ModelStateManagement.passions = "";
+                                        //   ModelStateManagement.socialIssue = "";
+                                        //   ModelStateManagement.careerPath = "";
+                                        // });
+                                        print("pressed");
+                                      },
+                                      icon: Icon(Icons.refresh_rounded),
+                                      shape: GFIconButtonShape.circle,
+                                      color: const Color.fromRGBO(
+                                          62, 105, 178, 0.7))
+                                  : null,
                             ),
                           ),
-                        )
-                      ]);
-                    
+                        ],
+                      ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(25.0),
+                          child: Text(
+                            '${snapshot.data}',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              height: 1.5,
+                            ),
+                          ),
+                        ),
+                      )
+                    ]);
                   }
               }
             }));
@@ -139,7 +179,7 @@ class ModelStateManagement with ChangeNotifier {
   static String socialIssue = "";
   static String careerPath = "";
 
-  Future<String> runGPTModel(String hobbies, String passions) async {
+  Future<String> runGPTModel() async {
     final res = await CompletionsAPI.generatePassionProjectIdea(
         hobbies, passions, socialIssue, careerPath);
     return res.choices![0]['text'];

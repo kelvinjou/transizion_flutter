@@ -42,6 +42,7 @@ dependencies:
   getwidget: ^2.0.4
   provider: ^6.0.5
   lottie: ^1.4.2
+  dropdown_button2: ^1.4.0
 
 dev_dependencies:
   flutter_test:
