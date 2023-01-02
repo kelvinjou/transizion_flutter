@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:getwidget/colors/gf_color.dart';
+import 'package:getwidget/components/alert/gf_alert.dart';
 import 'package:getwidget/components/button/gf_icon_button.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:getwidget/shape/gf_icon_button_shape.dart';
 import 'package:provider/provider.dart';
 import 'package:transizion_flutter/completions_api.dart';
@@ -13,6 +16,7 @@ class ViewOutputConnector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Future.delayed(Duration.zero, () => showAlert(context));
     return Scaffold(
       backgroundColor: Color.fromRGBO(65, 105, 178, 1.0),
       body: Center(
@@ -27,6 +31,39 @@ class ViewOutputConnector extends StatelessWidget {
       ),
     );
   }
+
+  // void showAlert(BuildContext context) {
+    
+  //         GFAlert(
+  //           width: 150,
+  //           // height: 75,
+  //           alignment: Alignment.center,
+  //           backgroundColor: Colors.white,
+  //           title: "Welcome!",
+  //           content: 'Get Flutter is one of the largest Flutter open-source UI library for mobile or web apps with  1000+ pre-built reusable widgets.',
+  //           type: GFAlertType.rounded,
+  //                         bottombar: Row(
+  //                           mainAxisAlignment: MainAxisAlignment.end,
+  //                           children: <Widget>[
+  //                             GFButton(
+  //                               onPressed: () {
+  //                                 // setState(() {
+  //                                 //   // alertWidget = null;
+  //                                 //   // showBlur = false;
+  //                                 // });
+  //                               },
+  //                               color: GFColors.LIGHT,
+  //                               child: const Text(
+  //                                 'Close',
+  //                                 style: TextStyle(color: Colors.black),
+  //                               ),
+  //                             ),
+  //                           ],
+  //                         ),
+          
+        
+  //       );
+  // }
 }
 
 /// As we have [context.watch] inside of our widget,
@@ -40,14 +77,15 @@ class Count extends StatefulWidget {
 }
 
 class _CountState extends State<Count> {
-  Future<String>? future;
+  Future<List<String>>? future;
   // cuz initState only runs on startup, won't run when it setState
   @override
   void initState() {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      // Provider.of<ModelStateManagement>(context, listen: false);
       if (context.watch<ModelStateManagement>().hasSubmitted) {
-        future = ModelStateManagement().runGPTModel();
+        // Provider.of<ModelStateManagement>(context, listen: false);
+        future = Provider.of<ModelStateManagement>(context, listen: false)
+            .runGPTModel();
       }
     });
     super.initState();
@@ -64,14 +102,18 @@ class _CountState extends State<Count> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: FutureBuilder<String>(
+        child: FutureBuilder<List<String>>(
             future: future,
-            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            builder:
+                (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
                   return Text(
-                    "Press button to start",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    "Results Shown Here",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 20.0),
                   );
                 case ConnectionState.waiting:
                   return Center(
@@ -81,11 +123,13 @@ class _CountState extends State<Count> {
                       children: [
                         Lottie.asset(
                             'assets/images/lottieCircularProgress.json',
-                            height: 150,
-                            width: 150),
+                            height: 225,
+                            width: 225),
                         Text("Generating Ideas",
                             style: TextStyle(
-                                fontSize: 22.0, fontWeight: FontWeight.bold))
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(241, 241, 241, 1.0)))
                       ],
                     ),
                   );
@@ -143,18 +187,45 @@ class _CountState extends State<Count> {
                           ),
                         ],
                       ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: Text(
-                            '${snapshot.data}',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              height: 1.5,
-                            ),
-                          ),
-                        ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          for (var item in snapshot.data!)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(45, 20, 40, 20),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(209, 219, 237, 1.0),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(17.0),
+                                  child: Text(
+                                    item,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        height: 1.5,
+                                        fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                            )
+                        ],
                       )
+                      // Center(
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(25.0),
+                      //     child: Text(
+                      //       '${snapshot.data}',
+                      //       style: TextStyle(
+                      //         fontSize: 16.0,
+                      //         height: 1.5,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // )
                     ]);
                   }
               }
@@ -178,11 +249,23 @@ class ModelStateManagement with ChangeNotifier {
   static String passions = "";
   static String socialIssue = "";
   static String careerPath = "";
+  static String specificCareerPath = "";
 
-  Future<String> runGPTModel() async {
+  Future<List<String>> runGPTModel() async {
     final res = await CompletionsAPI.generatePassionProjectIdea(
-        hobbies, passions, socialIssue, careerPath);
-    return res.choices![0]['text'];
+        hobbies, passions, socialIssue, careerPath, specificCareerPath);
+
+    final String text = res.choices![0]['text'];
+
+    final split = text.split("\n");
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++) i: split[i]
+    };
+    final value1 = values[2];
+    final value2 = values[4];
+    final value3 = values[6];
+
+    return [value1!, value2!, value3!];
   }
 
   void submitted() {

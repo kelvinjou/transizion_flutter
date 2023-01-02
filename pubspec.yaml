@@ -70,6 +70,7 @@ flutter:
   assets:
     - assets/images/lottieCircularProgress.json
     - assets/images/transparent_transizion.png
+    - assets/images/rhombus.png
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

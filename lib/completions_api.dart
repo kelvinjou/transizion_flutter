@@ -15,7 +15,7 @@ class CompletionsAPI {
     'Authorization': 'Bearer $openAIApiKey',
   };
 
-  static Future<CompletionsResponse> generatePassionProjectIdea(String hobbies, String passions, String socialIssue, String careerPath) async {
+  static Future<CompletionsResponse> generatePassionProjectIdea(String hobbies, String passions, String socialIssue, String careerPath, String specificCareerPath) async {
 
     String prompt = 'Come up with 3 detailed specific ideas for a high school $passions passion project that would make an impact on your community';
 
@@ -27,6 +27,11 @@ class CompletionsAPI {
       prompt = 'Come up with 3 detailed specific ideas for a high school $passions passion project that would make an impact to their community. This high school student is concerned about $socialIssue. As a potential career path, he would like to go into $careerPath';
     }
 
+    if (specificCareerPath.isNotEmpty) {
+            prompt = 'Come up with 3 detailed specific ideas for a high school $passions passion project that would make an impact to their community. This high school student is concerned about $socialIssue. As a potential career path, he would like to go into $careerPath, specifically $specificCareerPath';
+
+    }
+    
     CompletionsRequest request = CompletionsRequest(
         model: 'text-davinci-003',
         prompt: prompt,
@@ -41,7 +46,7 @@ class CompletionsAPI {
     // debugPrint('Received OpenAI API response: ${response.body}');
 
     var jsonResponse = jsonDecode(response.body);
-    // print("Using model: ${jsonResponse['choices'][0]['text']}");
+    debugPrint("Using model: ${jsonResponse['choices'][0]['text']}");
 
     // final prettyString =
     //     const JsonEncoder.withIndent('  ').convert(jsonResponse);

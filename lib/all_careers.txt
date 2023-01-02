@@ -1,0 +1,289 @@
+BUSINESS: 
+
+Accounting: Accountants prepare and examine financial records, ensure that businesses are in compliance with laws and regulations, and advise clients on financial matters.
+Banking: Bankers manage and invest money, provide financial advice to individuals and businesses, and help customers with banking transactions.
+Financial planning: Financial planners help individuals and businesses create and implement financial plans to achieve their financial goals.
+Insurance: Insurance professionals sell and manage insurance policies to protect individuals and businesses from financial losses.
+Investment banking: Investment bankers advise companies on financial matters, such as how to raise capital or restructure their finances.
+Management consulting: Management consultants help businesses improve their operations and strategy by providing expert advice and guidance.
+Marketing: Marketing professionals create and execute marketing plans to promote products or services to potential customers.
+Real estate: Real estate professionals buy, sell, and manage properties on behalf of clients.
+Sales: Sales professionals identify and pursue sales opportunities, negotiate deals, and build relationships with clients.
+Stockbroker: Stockbrokers buy and sell stocks and other securities on behalf of clients.
+Financial analyst: Financial analysts research and analyze financial data to help businesses make informed decisions.
+Human resources: Human resources professionals handle a range of tasks related to managing a company's employees, including hiring, training, and benefits administration.
+Insurance underwriter: Insurance underwriters evaluate risk and determine whether to issue insurance policies and at what price.
+Investment advisor: Investment advisors help individuals and businesses make informed decisions about investing their money.
+Management: Managers oversee the day-to-day operations of a company and make strategic decisions to help the company achieve its goals.
+Market research: Market research professionals gather and analyze data about consumers and markets to help businesses make informed decisions.
+Personal financial advisor: Personal financial advisors help individuals make informed decisions about their finances, including investments, retirement planning, and estate planning.
+Public relations: Public relations professionals manage a company's reputation and communicate with the public, media, and other stakeholders.
+Risk management: Risk management professionals identify and assess potential risks to a company and develop strategies to mitigate those risks.
+Sales management: Sales managers oversee a company's sales team and develop strategies to increase sales and achieve business goals.
+Tax preparation: Tax preparers help individuals and businesses prepare and file their tax returns.
+Treasury management: Treasury management professionals oversee a company's financial resources and manage its cash flow.
+Venture capital: Venture capital professionals invest in startups and other small businesses in exchange for ownership stakes.
+Wealth management: Wealth managers help individuals and families manage their financial assets and plan for the future.
+Credit analysis: Credit analysts evaluate the creditworthiness of individuals and businesses and determine whether to grant loans or extend credit.
+
+
+
+EDUCATION: 
+
+Teacher: Teachers instruct students in a variety of subjects and grade levels.
+Principal: Principals are the leaders of a school and are responsible for managing the school's staff, budget, and curriculum.
+Superintendent: Superintendents are responsible for managing a school district, including multiple schools and their staff, budget, and curriculum.
+Dean: Deans are responsible for managing a school or department within a higher education institution.
+Professor: Professors teach college-level courses and conduct research in their field of expertise.
+Curriculum specialist: Curriculum specialists develop and design educational materials and programs.
+Instructional coordinator: Instructional coordinators oversee the development and implementation of instructional materials and programs.
+School counselor: School counselors provide academic, personal, and career guidance to students.
+School psychologist: School psychologists work with students, parents, and teachers to address academic and emotional issues.
+Speech therapist: Speech therapists help individuals with communication disorders improve their speaking and listening skills.
+Special education teacher: Special education teachers work with students with disabilities to help them reach their full potential.
+Educational consultant: Educational consultants advise schools, districts, and other organizations on educational policies and practices.
+Educational researcher: Educational researchers study how people learn and develop and apply this knowledge to improve educational practices.
+Librarian: Librarians manage libraries and assist patrons with finding and accessing information.
+Reading specialist: Reading specialists help students improve their reading skills and comprehension.
+Museum educator: Museum educators create and implement educational programs and materials for museums.
+Online instructor: Online instructors teach courses and provide academic support to students via the internet.
+Private tutor: Private tutors provide individualized instruction to students in a particular subject or subjects.
+Educational technologist: Educational technologists design and implement technology-based learning solutions.
+Student affairs officer: Student affairs officers work in higher education institutions and support student development and well-being.
+Adult education instructor: Adult education instructors teach courses to adult learners in a variety of subjects.
+Career counselor: Career counselors help individuals make informed decisions about their education and career paths.
+ESL teacher: ESL teachers help non-native English speakers improve their English language skills.
+Early childhood educator: Early childhood educators work with young children, typically ages birth to 5, to support their development and learning.
+Teacher assistant: Teacher assistants work alongside teachers to support the learning of students.
+
+
+
+HEALTH CARE:
+
+Doctor: Doctors diagnose and treat medical conditions and injuries.
+Nurse: Nurses provide medical care and support to patients.
+Dentist: Dentists diagnose and treat problems with the teeth and mouth.
+Pharmacist: Pharmacists dispense and explain the use of prescription medications.
+Physical therapist: Physical therapists help patients recover from injuries and improve mobility.
+Occupational therapist: Occupational therapists help patients improve their ability to perform daily tasks.
+Speech therapist: Speech therapists help individuals with communication disorders improve their speaking and listening skills.
+Radiographer: Radiographers use medical imaging techniques, such as X-rays, to diagnose and treat medical conditions.
+Laboratory technician: Laboratory technicians perform laboratory tests and analyze samples to help diagnose and treat medical conditions.
+Medical assistant: Medical assistants perform a variety of administrative and clinical tasks to support the work of doctors and other health care professionals.
+Social worker: Social workers help individuals and families navigate social services and cope with challenges such as poverty, addiction, and mental health issues.
+Health educator: Health educators teach individuals and communities about healthy behaviors and lifestyles.
+Dietitian: Dietitians help individuals make informed decisions about their diet and nutrition.
+Mental health counselor: Mental health counselors help individuals cope with mental health issues and improve their well-being.
+Chiropractor: Chiropractors diagnose and treat problems with the musculoskeletal system.
+Optometrist: Optometrists diagnose and treat vision problems and prescribe eyeglasses and contact lenses.
+Podiatrist: Podiatrists diagnose and treat problems with the feet and ankles.
+Athletic trainer: Athletic trainers work with athletes to prevent and treat injuries and improve performance.
+Emergency medical technician: Emergency medical technicians provide medical care and transport patients to hospitals in emergency situations.
+Genetic counselor: Genetic counselors help individuals understand and manage genetic conditions and risks.
+Nurse practitioner: Nurse practitioners provide a range of medical services and may specialize in areas such as family medicine, women's health, or pediatrics.
+Midwife: Midwives provide care to women during pregnancy, childbirth, and the postpartum period.
+Hospice and palliative care nurse: Hospice and palliative care nurses provide care and support to individuals with terminal illnesses and their families.
+Respiratory therapist: Respiratory therapists help individuals with breathing problems, such as asthma or COPD.
+Veterinary technician: Veterinary technicians assist veterinarians in providing medical care to animals.
+
+
+
+TECHNOLOGY:
+
+Software developer: Software developers design and build computer programs.
+Data scientist: Data scientists analyze and interpret large sets of data to help organizations make informed decisions.
+Information security analyst: Information security analysts plan and implement security measures to protect computer systems and networks.
+Network engineer: Network engineers design, implement, and maintain computer networks.
+Database administrator: Database administrators manage and maintain databases to ensure the integrity and availability of data.
+Web developer: Web developers create and maintain websites and web applications.
+Mobile app developer: Mobile app developers design and build apps for mobile devices.
+Cloud engineer: Cloud engineers design, implement, and maintain cloud computing systems.
+DevOps engineer: DevOps engineers work to improve the collaboration between software developers and IT operations.
+Systems analyst: Systems analysts evaluate and improve the efficiency and effectiveness of computer systems.
+Technical support specialist: Technical support specialists provide assistance to users with technical problems.
+Quality assurance tester: Quality assurance testers test software to ensure it is functioning correctly and meets requirements.
+Technical project manager: Technical project managers oversee the planning and execution of technical projects.
+Technical writer: Technical writers create user manuals, online help systems, and other technical documentation.
+Game developer: Game developers design and build video games.
+User experience designer: User experience designers create designs for websites, apps, and other digital products that are easy and enjoyable for users to navigate.
+Virtual reality developer: Virtual reality developers create immersive experiences for virtual reality systems.
+Artificial intelligence engineer: Artificial intelligence engineers design and build systems that can learn and make decisions.
+Internet of Things (IoT) developer: IoT developers design and build systems that connect devices to the internet.
+Robotics engineer: Robotics engineers design and build robots and automation systems.
+3D artist: 3D artists create three-dimensional models, animations, and visual effects for movies, games, and other media.
+Animator: Animators create animated graphics and visual effects for movies, games, and other media.
+Graphic designer: Graphic designers create visual concepts for websites, advertisements, and other media.
+Technical trainer: Technical trainers teach others how to use software, hardware, and other technology.
+Technical recruiter: Technical recruiters identify and recruit qualified candidates for technical roles in companies.
+
+
+
+ART/DESIGN:
+
+Graphic designer: Graphic designers create visual concepts for websites, advertisements, and other media.
+Web designer: Web designers create and maintain websites, including the layout, appearance, and functionality.
+Fashion designer: Fashion designers create clothing and accessories.
+Interior designer: Interior designers create functional and aesthetically pleasing interior spaces.
+Illustrator: Illustrators create drawings and graphics for books, magazines, and other media.
+Multimedia artist: Multimedia artists create visual effects and animations for movies, television, and video games.
+Photographer: Photographers take and edit photographs for a variety of purposes.
+Fine artist: Fine artists create original works of art, such as paintings, sculptures, and drawings.
+Art director: Art directors oversee the visual aspects of projects, such as advertisements, movies, and video games.
+Art therapist: Art therapists use art as a form of therapy to help individuals express their emotions and cope with challenges.
+Game artist: Game artists create the visual elements of video games, such as characters and environments.
+Industrial designer: Industrial designers create the appearance and functionality of products, such as cars and appliances.
+Landscape architect: Landscape architects design outdoor spaces, such as parks, gardens, and public spaces.
+Animator: Animators create animated graphics and visual effects for movies, games, and other media.
+User experience designer: User experience designers create designs for websites, apps, and other digital products that are easy and enjoyable for users to navigate.
+Costume designer: Costume designers create the costumes for movies, theater, and other performances.
+Makeup artist: Makeup artists apply makeup for special occasions, such as weddings, or for performance, such as theater or television.
+Set designer: Set designers create the sets for movies, television shows, and theater productions.
+Technical designer: Technical designers create detailed technical drawings of products, such as clothing and accessories.
+Textile designer: Textile designers create designs for fabrics and other textiles.
+Toy designer: Toy designers create toys and games.
+Video game designer: Video game designers create the concepts and gameplay mechanics for video games.
+Visual merchandiser: Visual merchandisers create displays for stores and other retail spaces to attract customers and promote products.
+Creative director: Creative directors oversee the creative aspects of projects, such as advertisements, movies, and video games.
+User interface designer: User interface designers create the interfaces for websites, apps, and other digital products, including how they look and how users interact with them.
+
+COMMS/MEDIA:
+
+Public relations specialist
+Advertising account executive
+Marketing manager
+Event planner
+Social media manager
+Journalist
+News anchor
+Radio DJ
+Television producer
+Film director
+Screenwriter
+Actor
+Voiceover artist
+Animator
+Graphic designer
+Website developer
+User experience (UX) designer
+Technical writer
+Editor
+Translation specialist
+Interpreter
+Speechwriter
+Public speaking coach
+Corporate communications specialist
+Media planner
+
+
+LAW:
+
+Attorney: A lawyer who represents clients in legal matters and provides legal advice.
+Judge: A legal professional who presides over court cases and makes decisions on legal matters.
+Prosecutor: A lawyer who represents the government in criminal cases and presents evidence against defendants.
+Defense lawyer: A lawyer who represents criminal defendants and defends their legal rights.
+Paralegal: A professional who assists lawyers with legal research and other tasks.
+Legal secretary: A professional who provides administrative support to lawyers and helps with the preparation of legal documents.
+Bailiff: A court officer who maintains order in the courtroom and assists the judge.
+Court reporter: A professional who records verbatim transcriptions of court proceedings and produces written records of legal proceedings.
+Probation officer: A professional who monitors and supports individuals on probation or parole and helps them to comply with the terms of their release.
+Victim advocate: A professional who supports and assists victims of crime and helps them navigate the criminal justice system.
+Police officer: A law enforcement professional who investigates crimes, makes arrests, and maintains public safety.
+Detective: A law enforcement professional who investigates crimes and gathers evidence to solve cases.
+Federal agent: A law enforcement professional who investigates federal crimes and works for agencies such as the FBI or DEA.
+Border patrol agent: A law enforcement professional who patrols and protects national borders.
+Correctional officer: A professional who supervises and manages individuals in detention facilities such as prisons and jails.
+Parole officer: A professional who monitors and supports individuals on parole and helps them to successfully reintegrate into society.
+Forensic scientist: A professional who analyzes physical evidence and uses scientific techniques to solve crimes.
+Crime scene investigator: A professional who gathers and analyzes physical evidence at crime scenes.
+Private investigator: A professional who conducts investigations on behalf of private clients.
+Cybersecurity analyst: A professional who protects against cyber threats and helps to prevent cyber crimes.
+Fraud investigator: A professional who investigates financial crimes such as embezzlement and fraud.
+Intelligence analyst: A professional who gathers and analyzes information to support law enforcement and national security efforts.
+Security officer: A professional who protects people and property from harm.
+Legal mediator: A neutral third party who helps to facilitate communication and resolve disputes between parties without going to court.
+Criminologist: A professional who studies crime and criminal behavior and works to understand and prevent criminal activity.
+
+
+STEM:
+Biomedical engineer
+Chemical engineer
+Civil engineer
+Computer scientist
+Data scientist
+Electrical engineer
+Environmental engineer
+Geological engineer
+Industrial engineer
+Materials engineer
+Mechanical engineer
+Nuclear engineer
+Petroleum engineer
+Software engineer
+Agricultural scientist
+Astronomer
+Biochemist
+Biologist
+Chemist
+Ecologist
+Geologist
+Marine biologist
+Meteorologist
+Microbiologist
+Physicist
+
+
+SOCIAL SERVICE:
+
+Social worker
+Counselor
+Psychologist
+Marriage and family therapist
+Mental health counselor
+Rehabilitation counselor
+School counselor
+Substance abuse counselor
+Gerontologist
+Health educator
+Case manager
+Community organizer
+Crisis counselor
+Human services worker
+Nonprofit manager
+Probation officer
+Rehabilitation specialist
+Substance abuse treatment coordinator
+Victim advocate
+Vocational counselor
+Adoption specialist
+Child and family therapist
+Elder care specialist
+Medical and health services manager
+Substance abuse counselor 
+
+
+HOSPITALITY/TOURISM:
+Hotel manager
+Restaurant manager
+Event planner
+Travel agent
+Tour guide
+Concierge
+Hotel receptionist
+Food and beverage manager
+Cruise ship worker
+Airline worker
+Tour operator
+Hospitality sales representative
+Event coordinator
+Hotel concierge
+Hospitality consultant
+Hospitality recruiter
+Hospitality trainer
+Hospitality marketer
+Hospitality public relations specialist
+Hospitality procurement specialist
+Hospitality financial manager
+Hospitality IT specialist
+Hospitality design specialist
+Hospitality sustainability specialist
+Hospitality human resources specialist

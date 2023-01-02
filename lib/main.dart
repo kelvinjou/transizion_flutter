@@ -54,10 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Row(
       children: <Widget>[
         const Expanded(flex: 1, child: ViewUserInput()
-            // Container(
-            //   width: MediaQuery.of(context).size.width * 0.25,
-            //   decoration: BoxDecoration(color: Colors.greenAccent),
-            // ),
             ),
         Expanded(
           flex: 1,
