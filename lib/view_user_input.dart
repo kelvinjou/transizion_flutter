@@ -368,14 +368,14 @@ class ViewUserInputState extends State<ViewUserInput> {
       child: DropdownButton2(
         isExpanded: true,
         hint: Row(
-          children: const [
+          children: [
             Expanded(
               child: Text(
                 'Choose a career path',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.grey[800],
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -457,14 +457,14 @@ class ViewUserInputState extends State<ViewUserInput> {
       child: DropdownButton2(
         isExpanded: true,
         hint: Row(
-          children: const [
+          children: [
             Expanded(
               child: Text(
-                'Select up to 3 specific fields',
+                'Select up to 3 Specific Fields (Optional)',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.grey[800],
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
