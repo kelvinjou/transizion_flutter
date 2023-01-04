@@ -318,25 +318,27 @@ class ViewUserInputState extends State<ViewUserInput> {
   }
 
   Widget _buildTransizionIcon() {
-    return Positioned(
-      top: 0.0,
-      left: 0.0,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Row(
-          children: [
-            Image.asset(
-              "assets/images/transparent_transizion.png",
-              width: 135,
-              height: 135,
-            ),
-            SizedBox(width: 20),
-            Text("Passion Project Generator",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0,
-                    color: const Color.fromRGBO(62, 105, 178, 1.0))),
-          ],
+    return Align(
+      alignment: AlignmentDirectional.topEnd,
+      child: Expanded(
+        flex: 1,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/images/transparent_transizion.png",
+                width: 135,
+                height: 135,
+              ),
+              SizedBox(width: 20),
+              Text("Passion Project Generator",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0,
+                      color: const Color.fromRGBO(62, 105, 178, 1.0))),
+            ],
+          ),
         ),
       ),
     );

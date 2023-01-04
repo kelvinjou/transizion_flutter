@@ -16,7 +16,7 @@ class CompletionsAPI {
   
 
   static Future<CompletionsResponse> generatePassionProjectIdea(String hobbies, String passions, String socialIssue, String careerPath, String specificCareerPath) async {
-    await dotenv.load();
+    await dotenv.load(fileName: "dotenv");
     // final apiKeyENV =  DotEnv().env['API_KEY'];
 
     final Map<String, String> headers = {

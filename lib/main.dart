@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:transizion_flutter/view_output_connector.dart';
 import 'package:transizion_flutter/view_user_input.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 
-Future<void> main() async {
-  await dotenv.load(fileName: '.env');
-
+void main() {
+  
   runApp(const MyApp());
   // final res = await DotEnv().env['API_KEY'];
   // debugPrint(res);
