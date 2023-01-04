@@ -44,7 +44,7 @@ class CompletionsAPI {
     http.Response response = await http.post(completionsEndpoint,
         headers: headers, body: request.toJson());
     // debugPrint('Received OpenAI API response: ${response.body}');
-
+  debugPrint("BODY! ${response.body}");
     var jsonResponse = jsonDecode(response.body);
     debugPrint("Using model: ${jsonResponse['choices'][0]['text']}");
 
