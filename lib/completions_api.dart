@@ -2,20 +2,27 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:transizion_flutter/api_key.dart';
 import 'package:transizion_flutter/completions_response.dart';
 import 'package:transizion_flutter/completions_request.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class CompletionsAPI {
   static final Uri completionsEndpoint =
       Uri.parse('https://api.openai.com/v1/completions');
 
-  static final Map<String, String> headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer $openAIApiKey',
-  };
+  
+
+  
 
   static Future<CompletionsResponse> generatePassionProjectIdea(String hobbies, String passions, String socialIssue, String careerPath, String specificCareerPath) async {
+    await dotenv.load();
+    // final apiKeyENV =  DotEnv().env['API_KEY'];
+
+    final Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ${dotenv.env['API_KEY']}',
+  };
 
     String prompt = 'Come up with 3 detailed specific ideas for a high school $passions passion project that would make an impact on your community';
 

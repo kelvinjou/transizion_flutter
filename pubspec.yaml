@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.0.5
   lottie: ^1.4.2
   dropdown_button2: ^1.4.0
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
     - assets/images/lottieCircularProgress.json
     - assets/images/transparent_transizion.png
     - assets/images/rhombus.png
+    - .env
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
