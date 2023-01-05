@@ -89,68 +89,72 @@ class ViewUserInputState extends State<ViewUserInput> {
 
                   SizedBox(height: 10),
 
-                  Container(
-                    margin: const EdgeInsets.all(10.0),
-                    width: 400,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 1.5,
-                            offset: Offset(0, 2))
-                      ],
-                    ),
-                    child: TextField(
-                      controller: passionController,
-                      onChanged: (value) {
-                        passions = passionController.text;
-                        setState(() {
-                          formKey.currentState?.validate();
+                  Stack(
+                    alignment: AlignmentDirectional.topEnd,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(10.0),
+                        width: 400,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 1.5,
+                                offset: Offset(0, 2))
+                          ],
+                        ),
+                        child: TextField(
+                          controller: passionController,
+                          onChanged: (value) {
+                            passions = passionController.text;
+                            setState(() {
+                              formKey.currentState?.validate();
 
-                          if (passionController.text.isNotEmpty) {
-                            passionsFilledOut = true;
-                          } else {
-                            hobbiesFilledOut = false;
-                          }
-                        });
-                      },
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(62, 105, 178, 0.85),
-                                width: 2.2)),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide(color: Colors.grey)),
-                        filled: true,
-                        hintStyle: TextStyle(
-                            color: Colors.grey[800],
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14.0),
-                        hintText: "Passions",
-                        fillColor: Colors.white,
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: RichText(
-                            text: TextSpan(
-                              text: "*",
-                              style:
-                                  DefaultTextStyle.of(context).style.copyWith(
-                                        fontSize: 20,
-                                        color: Colors.red,
-                                      ),
-                            ),
+                              if (passionController.text.isNotEmpty) {
+                                passionsFilledOut = true;
+                              } else {
+                                hobbiesFilledOut = false;
+                              }
+                            });
+                          },
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14.0),
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide(
+                                    color: Color.fromRGBO(62, 105, 178, 0.85),
+                                    width: 2.2)),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide(color: Colors.grey)),
+                            filled: true,
+                            hintStyle: TextStyle(
+                                color: Colors.grey[800],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0),
+                            hintText: "Passions",
+                            fillColor: Colors.white,
                           ),
                         ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "*",
+                            style: DefaultTextStyle.of(context).style.copyWith(
+                                  fontSize: 20,
+                                  color: Colors.red,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
 
                   SizedBox(height: 10),
@@ -189,9 +193,26 @@ class ViewUserInputState extends State<ViewUserInput> {
                   //   ),
                   // ),
 
-                  Container(
-                      margin: const EdgeInsets.all(10.0),
-                      child: _buildCareerPathDropdown()),
+                  Stack(
+                    alignment: AlignmentDirectional.topEnd,
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.all(10.0),
+                          child: _buildCareerPathDropdown()),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: RichText(
+                          text: TextSpan(
+                            text: "*",
+                            style: DefaultTextStyle.of(context).style.copyWith(
+                                  fontSize: 20,
+                                  color: Colors.red,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
 
                   SizedBox(height: 10),
 
@@ -338,21 +359,20 @@ class ViewUserInputState extends State<ViewUserInput> {
   Widget _buildTransizionIcon() {
     // debugPrint("PPP ${MediaQuery.of(context).size.width}");
     return Align(
-        alignment: Alignment.topLeft,
-
+      alignment: Alignment.topLeft,
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0),
         child: Tooltip(
           margin: EdgeInsets.only(right: 50),
           // height: 200,
           richMessage: WidgetSpan(
-              alignment: PlaceholderAlignment.baseline,
-              baseline: TextBaseline.alphabetic,
-              child: Text(
-                "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
-                style: TextStyle(fontSize: 14, color: Colors.white),
-              ),
+            alignment: PlaceholderAlignment.baseline,
+            baseline: TextBaseline.alphabetic,
+            child: Text(
+              "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
+              style: TextStyle(fontSize: 14, color: Colors.white),
             ),
+          ),
           child: Wrap(
             textDirection: TextDirection.ltr,
             children: [
@@ -415,18 +435,6 @@ class ViewUserInputState extends State<ViewUserInput> {
                   color: Colors.grey[800],
                 ),
                 overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5.0),
-              child: RichText(
-                text: TextSpan(
-                  text: "*",
-                  style: DefaultTextStyle.of(context).style.copyWith(
-                        fontSize: 20,
-                        color: Colors.red,
-                      ),
-                ),
               ),
             ),
           ],
@@ -499,7 +507,7 @@ class ViewUserInputState extends State<ViewUserInput> {
       ),
     );
   }
-  
+
   Widget _buildMultiSelectDropdown() {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
