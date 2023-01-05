@@ -35,6 +35,7 @@ class ViewUserInputState extends State<ViewUserInput> {
   String? selectedValue;
 
   String? subCategory;
+  List<String> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -447,6 +448,7 @@ class ViewUserInputState extends State<ViewUserInput> {
         value: selectedValue,
         onChanged: (value) {
           setState(() {
+            selectedItems = [];
             selectedValue = value as String;
 
             careerPathFilledOut = true;
@@ -497,9 +499,7 @@ class ViewUserInputState extends State<ViewUserInput> {
       ),
     );
   }
-
-  List<String> selectedItems = [];
-
+  
   Widget _buildMultiSelectDropdown() {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
