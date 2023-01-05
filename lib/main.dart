@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           title: 'Passion Project Generator',
           theme: ThemeData(
             primarySwatch: Colors.blue,
+            fontFamily: "Oswald",
           ),
           home: ViewOutputConnector()),
 
@@ -58,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        const Expanded(flex: 1, child: ViewUserInput()
+        Expanded(flex: 1, child: ViewUserInput()
             ),
         Expanded(
           flex: 1,

@@ -16,7 +16,6 @@ class ViewOutputConnector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Future.delayed(Duration.zero, () => showAlert(context));
     return Scaffold(
       backgroundColor: Color.fromRGBO(65, 105, 178, 1.0),
       body: Center(
@@ -25,7 +24,12 @@ class ViewOutputConnector extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Expanded(flex: 1, child: ViewUserInput()),
-            Expanded(flex: 1, child: Count())
+            Expanded(
+              flex: 1, 
+              child: SingleChildScrollView(child: Count(),)
+              
+              
+              )
           ],
         ),
       ),
@@ -33,7 +37,7 @@ class ViewOutputConnector extends StatelessWidget {
   }
 
   // void showAlert(BuildContext context) {
-    
+
   //         GFAlert(
   //           width: 150,
   //           // height: 75,
@@ -60,8 +64,7 @@ class ViewOutputConnector extends StatelessWidget {
   //                             ),
   //                           ],
   //                         ),
-          
-        
+
   //       );
   // }
 }
@@ -81,7 +84,7 @@ class _CountState extends State<Count> {
   // cuz initState only runs on startup, won't run when it setState
   @override
   void initState() {
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (context.watch<ModelStateManagement>().hasSubmitted) {
         // Provider.of<ModelStateManagement>(context, listen: false);
         future = Provider.of<ModelStateManagement>(context, listen: false)
@@ -148,45 +151,45 @@ class _CountState extends State<Count> {
                     return Text('Error: ${snapshot.error}');
                   } else {
                     return Stack(children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(25.0),
-                            child: Align(
-                              alignment: Alignment.bottomRight,
-                              child: context
-                                      .read<ModelStateManagement>()
-                                      .canRestart
-                                  ? GFIconButton(
-                                      onPressed: () {
-                                        // setState(() {
-                                        //   ViewUserInputState
-                                        //       .hobbiesController.clear;
-                                        //   ViewUserInputState
-                                        //       .passionController.clear;
-                                        //   ViewUserInputState
-                                        //       .careerPathController.clear;
-                                        //   ViewUserInputState
-                                        //       .socialIssueController.clear;
+                      // Column(
+                      //   mainAxisAlignment: MainAxisAlignment.end,
+                      //   crossAxisAlignment: CrossAxisAlignment.end,
+                      //   children: [
+                      //     Padding(
+                      //       padding: const EdgeInsets.all(25.0),
+                      //       child: Align(
+                      //         alignment: Alignment.bottomRight,
+                      //         child: context
+                      //                 .read<ModelStateManagement>()
+                      //                 .canRestart
+                      //             ? GFIconButton(
+                      //                 onPressed: () {
+                      //                   // setState(() {
+                      //                   //   ViewUserInputState
+                      //                   //       .hobbiesController.clear;
+                      //                   //   ViewUserInputState
+                      //                   //       .passionController.clear;
+                      //                   //   ViewUserInputState
+                      //                   //       .careerPathController.clear;
+                      //                   //   ViewUserInputState
+                      //                   //       .socialIssueController.clear;
 
-                                        //   ModelStateManagement.hobbies = "";
-                                        //   ModelStateManagement.passions = "";
-                                        //   ModelStateManagement.socialIssue = "";
-                                        //   ModelStateManagement.careerPath = "";
-                                        // });
-                                        print("pressed");
-                                      },
-                                      icon: Icon(Icons.refresh_rounded),
-                                      shape: GFIconButtonShape.circle,
-                                      color: const Color.fromRGBO(
-                                          62, 105, 178, 0.7))
-                                  : null,
-                            ),
-                          ),
-                        ],
-                      ),
+                      //                   //   ModelStateManagement.hobbies = "";
+                      //                   //   ModelStateManagement.passions = "";
+                      //                   //   ModelStateManagement.socialIssue = "";
+                      //                   //   ModelStateManagement.careerPath = "";
+                      //                   // });
+                      //                   print("pressed");
+                      //                 },
+                      //                 icon: Icon(Icons.refresh_rounded),
+                      //                 shape: GFIconButtonShape.circle,
+                      //                 color: const Color.fromRGBO(
+                      //                     62, 105, 178, 0.7))
+                      //             : null,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -261,6 +264,14 @@ class ModelStateManagement with ChangeNotifier {
     final Map<int, String> values = {
       for (int i = 0; i < split.length; i++) i: split[i]
     };
+
+    Map<int, String> modifiedValues = values.map((key, value) =>
+        MapEntry(key, value.replaceAll(RegExp(r"^\d\.\s"), "")));
+
+    values.removeWhere((key, value) => value.startsWith(RegExp(r"^\d\.\s")));
+
+    values.addAll(modifiedValues);
+
     final value1 = values[2];
     final value2 = values[4];
     final value3 = values[6];

@@ -44,12 +44,14 @@ class ViewUserInputState extends State<ViewUserInput> {
         key: formKey,
         child: Stack(
           children: [
-            _buildTransizionIcon(),
+            // _buildTransizionIcon(),
             _buildRhombusDesign(),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  _buildTransizionIcon(),
+                  Spacer(),
                   // MARK: hobbies
                   // Container(
                   //   margin: const EdgeInsets.all(10.0),
@@ -133,6 +135,19 @@ class ViewUserInputState extends State<ViewUserInput> {
                             fontSize: 14.0),
                         hintText: "Passions",
                         fillColor: Colors.white,
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: RichText(
+                            text: TextSpan(
+                              text: "*",
+                              style:
+                                  DefaultTextStyle.of(context).style.copyWith(
+                                        fontSize: 20,
+                                        color: Colors.red,
+                                      ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -308,6 +323,8 @@ class ViewUserInputState extends State<ViewUserInput> {
                             : const Color.fromRGBO(157, 191, 252, 0.7),
                     size: GFSize.LARGE,
                   ),
+                  Spacer(),
+                  SizedBox(height: 100)
                 ],
               ),
             ),
@@ -318,25 +335,42 @@ class ViewUserInputState extends State<ViewUserInput> {
   }
 
   Widget _buildTransizionIcon() {
+    // debugPrint("PPP ${MediaQuery.of(context).size.width}");
     return Align(
-      alignment: AlignmentDirectional.topEnd,
-      child: Expanded(
-        flex: 1,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Row(
+        alignment: Alignment.topLeft,
+
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20.0),
+        child: Tooltip(
+          margin: EdgeInsets.only(right: 50),
+          // height: 200,
+          richMessage: WidgetSpan(
+              alignment: PlaceholderAlignment.baseline,
+              baseline: TextBaseline.alphabetic,
+              child: Text(
+                "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
+                style: TextStyle(fontSize: 14, color: Colors.white),
+              ),
+            ),
+          child: Wrap(
+            textDirection: TextDirection.ltr,
             children: [
               Image.asset(
                 "assets/images/transparent_transizion.png",
+                filterQuality: FilterQuality.high,
                 width: 135,
                 height: 135,
               ),
               SizedBox(width: 20),
-              Text("Passion Project Generator",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
-                      color: const Color.fromRGBO(62, 105, 178, 1.0))),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.width > 822 ? 50.0 : 0.0),
+                child: Text("Passion Project Generator",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25.0,
+                        color: const Color.fromRGBO(62, 105, 178, 1.0))),
+              ),
             ],
           ),
         ),
@@ -380,6 +414,18 @@ class ViewUserInputState extends State<ViewUserInput> {
                   color: Colors.grey[800],
                 ),
                 overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 5.0),
+              child: RichText(
+                text: TextSpan(
+                  text: "*",
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        fontSize: 20,
+                        color: Colors.red,
+                      ),
+                ),
               ),
             ),
           ],
