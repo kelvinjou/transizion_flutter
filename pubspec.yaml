@@ -71,7 +71,7 @@ flutter:
   fonts:
     - family: Oswald
       fonts:
-        - asset: assets/images/fonts/OswaldFont.ttf
+        - asset: assets/images/fonts/Oswald-VariableFont_wght.ttf
         # - asset: fonts/Raleway-Italic.ttf
         #   style: italic
 

@@ -25,11 +25,10 @@ class ViewOutputConnector extends StatelessWidget {
           children: const [
             Expanded(flex: 1, child: ViewUserInput()),
             Expanded(
-              flex: 1, 
-              child: SingleChildScrollView(child: Count(),)
-              
-              
-              )
+                flex: 1,
+                child: SingleChildScrollView(
+                  child: Count(),
+                ))
           ],
         ),
       ),
@@ -151,45 +150,7 @@ class _CountState extends State<Count> {
                     return Text('Error: ${snapshot.error}');
                   } else {
                     return Stack(children: [
-                      // Column(
-                      //   mainAxisAlignment: MainAxisAlignment.end,
-                      //   crossAxisAlignment: CrossAxisAlignment.end,
-                      //   children: [
-                      //     Padding(
-                      //       padding: const EdgeInsets.all(25.0),
-                      //       child: Align(
-                      //         alignment: Alignment.bottomRight,
-                      //         child: context
-                      //                 .read<ModelStateManagement>()
-                      //                 .canRestart
-                      //             ? GFIconButton(
-                      //                 onPressed: () {
-                      //                   // setState(() {
-                      //                   //   ViewUserInputState
-                      //                   //       .hobbiesController.clear;
-                      //                   //   ViewUserInputState
-                      //                   //       .passionController.clear;
-                      //                   //   ViewUserInputState
-                      //                   //       .careerPathController.clear;
-                      //                   //   ViewUserInputState
-                      //                   //       .socialIssueController.clear;
-
-                      //                   //   ModelStateManagement.hobbies = "";
-                      //                   //   ModelStateManagement.passions = "";
-                      //                   //   ModelStateManagement.socialIssue = "";
-                      //                   //   ModelStateManagement.careerPath = "";
-                      //                   // });
-                      //                   print("pressed");
-                      //                 },
-                      //                 icon: Icon(Icons.refresh_rounded),
-                      //                 shape: GFIconButtonShape.circle,
-                      //                 color: const Color.fromRGBO(
-                      //                     62, 105, 178, 0.7))
-                      //             : null,
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                      
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

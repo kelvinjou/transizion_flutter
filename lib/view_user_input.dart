@@ -47,6 +47,7 @@ class ViewUserInputState extends State<ViewUserInput> {
           children: [
             // _buildTransizionIcon(),
             _buildRhombusDesign(),
+            _buildInfoHover(),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -623,4 +624,37 @@ class ViewUserInputState extends State<ViewUserInput> {
     // debugPrint(mapCategories[careerPathController.text);
     return mapCategories[careerPathController.text];
   }
+}
+
+Widget _buildInfoHover() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.end,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: const [
+      Padding(
+        padding: EdgeInsets.all(25.0),
+        child: Align(
+            alignment: Alignment.bottomRight,
+            child: Tooltip(
+              margin: EdgeInsets.only(right: 50),
+              // height: 200,
+              richMessage: WidgetSpan(
+                alignment: PlaceholderAlignment.baseline,
+                baseline: TextBaseline.alphabetic,
+                child: Text(
+                  "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ),
+              child: Icon(
+                Icons.info_outline_rounded,
+                color: Color.fromRGBO(62, 105, 178, 1.0),
+              ),
+              // shape: GFIconButtonShape.circle,
+              // color: Color.fromRGBO(
+              // 209, 219, 237, 1.0)),
+            )),
+      ),
+    ],
+  );
 }
