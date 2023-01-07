@@ -47,7 +47,7 @@ class ViewUserInputState extends State<ViewUserInput> {
           children: [
             // _buildTransizionIcon(),
             _buildRhombusDesign(),
-            _buildInfoHover(),
+            // _buildInfoHover(),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
