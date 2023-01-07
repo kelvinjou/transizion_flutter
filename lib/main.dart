@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:transizion_flutter/split_screen.dart';
 import 'package:transizion_flutter/view_output_connector.dart';
 import 'package:transizion_flutter/view_user_input.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             fontFamily: "Oswald",
           ),
-          home: ViewOutputConnector()),
+          home: SplitScreen()),
 
       // MyHomePage())
     );

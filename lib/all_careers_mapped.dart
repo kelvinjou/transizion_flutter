@@ -1,14 +1,15 @@
-import 'dart:core';
+import "dart:core";
 
 final Map<String, List<String>> mapCategories = {
   "Business and Finance": business,
+  "Technology" : technology,
   "Science, Engineering, and Math": stem,
   "Education": education,
   "Health Care": healthcare,
-  "Technology" : technology,
   "Art and Design" : artDesign,
   "Communications and Media" : commsMedia,
   "Law and Criminal Justice" : lawJustice,
+  "Politics/International Relations" : politics,
   "Social Services" : socialService,
   "Hospitality and Tourism" : hospitalityTourism
 };
@@ -22,6 +23,7 @@ final List<String> generalPaths = [
   "Art and Design",
   "Communications and Media",
   "Law and Criminal Justice",
+  "Politics/International Relations",
   "Social Services",
   "Hospitality and Tourism",
 ];
@@ -306,4 +308,32 @@ final List<String> hospitalityTourism = [
   "Hospitality design specialist",
   "Hospitality sustainability specialist",
   "Hospitality human resources specialist"
+];
+
+final List<String> politics = [
+  "Politician",  
+  "Political strategist",  
+  "Lobbyist",  
+  "Political analyst",  
+  "Diplomat",  
+  "Foreign correspondent",  
+  "Campaign manager",  
+  "Public policy analyst",  
+  "Public affairs specialist",
+  "Government affairs specialist",  
+  "Foreign service officer",  
+  "Political scientist",  
+  "Political campaign fundraiser",  
+  "Political fundraiser",  
+  "Political party organizer",  
+  "Political party leader",  
+  "Political communication specialist",  
+  "Government relations specialist",  
+  "International development worker",  
+  "International humanitarian worker",  
+  "International organization worker",  
+  "International human rights worker",  
+  "International trade specialist",  
+  "International law specialist",  
+  "International relations professor",  
 ];

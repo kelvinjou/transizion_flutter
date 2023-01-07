@@ -52,44 +52,30 @@ class ViewUserInputState extends State<ViewUserInput> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildTransizionIcon(),
-                  Spacer(),
-                  // MARK: hobbies
-                  // Container(
-                  //   margin: const EdgeInsets.all(10.0),
-                  //   width: 400,
-                  //   child: TextField(
-                  //     controller: hobbiesController,
-                  //     onChanged: (value) {
-                  //       setState(() {
-                  //         hobbies = hobbiesController.text;
-                  //         formKey.currentState?.validate();
-
-                  //         if (hobbiesController.text.isNotEmpty) {
-                  //           hobbiesFilledOut = true;
-                  //         } else {
-                  //           hobbiesFilledOut = false;
-                  //         }
-                  //       });
-                  //     },
-                  //     decoration: InputDecoration(
-                  //         focusedBorder: OutlineInputBorder(
-                  //             borderRadius: BorderRadius.circular(50.0),
-                  //             borderSide: BorderSide(
-                  //                 color: Color.fromRGBO(62, 105, 178, 0.85),
-                  //                 width: 2.2)),
-                  //         enabledBorder: OutlineInputBorder(
-                  //             borderRadius: BorderRadius.circular(50.0),
-                  //             borderSide: BorderSide(color: Colors.grey)),
-                  //         filled: true,
-                  //         hintStyle: TextStyle(color: Colors.grey[800]),
-                  //         hintText: "Hobbies",
-                  //         fillColor: Colors.white70),
-                  //   ),
-                  // ),
-
-                  SizedBox(height: 10),
-
+                  // _buildTransizionIcon(),
+                  SizedBox(height: 35),
+                  SizedBox(
+                    width: 300,
+                    child: Image.asset(
+                      "assets/images/transparent_transizion.png",
+                      filterQuality: FilterQuality.high,
+                      // width: 135,
+                      // height: 135,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Passion Project Generator",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25.0,
+                              color: const Color.fromRGBO(62, 105, 178, 1.0))),
+                      _buildInfoHover(),
+                    ],
+                  ),
+                  SizedBox(height: 40),
+                  
                   Stack(
                     alignment: AlignmentDirectional.topEnd,
                     children: [
@@ -138,7 +124,7 @@ class ViewUserInputState extends State<ViewUserInput> {
                                 color: Colors.grey[800],
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14.0),
-                            hintText: "Passions",
+                            hintText: "List passions (separated by ,)",
                             fillColor: Colors.white,
                           ),
                         ),
@@ -159,40 +145,6 @@ class ViewUserInputState extends State<ViewUserInput> {
                   ),
 
                   SizedBox(height: 10),
-
-                  // Container(
-                  //   margin: const EdgeInsets.all(10.0),
-                  //   width: 400,
-                  //   height: 50,
-                  //   child: TextField(
-                  //     controller: careerPathController,
-                  //     onChanged: (value) {
-                  //       socialIssue = careerPathController.text;
-                  //       setState(() {
-                  //         formKey.currentState?.validate();
-
-                  //         if (passionController.text.isNotEmpty) {
-                  //           careerPathFilledOut = true;
-                  //         } else {
-                  //           careerPathFilledOut = false;
-                  //         }
-                  //       });
-                  //     },
-                  //     decoration: InputDecoration(
-                  //         focusedBorder: OutlineInputBorder(
-                  //             borderRadius: BorderRadius.circular(20.0),
-                  //             borderSide: BorderSide(
-                  //                 color: Color.fromRGBO(62, 105, 178, 0.85),
-                  //                 width: 2.2)),
-                  //         enabledBorder: OutlineInputBorder(
-                  //             borderRadius: BorderRadius.circular(20.0),
-                  //             borderSide: BorderSide(color: Colors.grey)),
-                  //         filled: true,
-                  //         hintStyle: TextStyle(color: Colors.grey[800]),
-                  //         hintText: "Career path (Optional)",
-                  //         fillColor: Colors.white),
-                  //   ),
-                  // ),
 
                   Stack(
                     alignment: AlignmentDirectional.topEnd,
@@ -270,7 +222,7 @@ class ViewUserInputState extends State<ViewUserInput> {
                                   color: Colors.grey[800],
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14.0),
-                              hintText: "Social Issues (Optional)",
+                              hintText: "List social issues you care about (separated by ,)",
                               fillColor: Colors.white),
                         ),
                       ),
@@ -322,15 +274,17 @@ class ViewUserInputState extends State<ViewUserInput> {
                         // debugPrint("third res: $value3");
                       }
                     },
-                    text: "Generate Passion Project",
+                    text: "Generate Passion Project!",
                     textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      // color: hobbiesFilledOut == true &&
-                      //         passionsFilledOut == true
-                      //     ? Colors.white70
-                      //     : Colors.black,
-                      //     letterSpacing: 0.7
-                    ),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: "Oswald"
+                        // color: hobbiesFilledOut == true &&
+                        //         passionsFilledOut == true
+                        //     ? Colors.white70
+                        //     : Colors.black,
+                        //     letterSpacing: 0.7
+                        ),
                     textColor:
                         careerPathFilledOut == true && passionsFilledOut == true
                             ? Colors.white
@@ -344,7 +298,7 @@ class ViewUserInputState extends State<ViewUserInput> {
                         careerPathFilledOut == true && passionsFilledOut == true
                             ? const Color.fromRGBO(62, 105, 178, 0.98)
                             : const Color.fromRGBO(157, 191, 252, 0.7),
-                    size: GFSize.LARGE,
+                    size: 55,
                   ),
                   Spacer(),
                   SizedBox(height: 100)
@@ -406,15 +360,18 @@ class ViewUserInputState extends State<ViewUserInput> {
         left: 0.0,
         child: Padding(
           padding: const EdgeInsets.only(left: 20.0),
-          child:
-              // width: MediaQuery.of(context).size.width * 0.5,
-              FittedBox(
-            fit: BoxFit.fill,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minWidth: 1, minHeight: 1),
-              child: Image.asset(
-                "assets/images/rhombus.png",
-                // width: MediaQuery.of(context).size.width * 0.5
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width > 700
+                ? MediaQuery.of(context).size.width
+                : 600,
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minWidth: 1, minHeight: 1),
+                child: Image.asset(
+                  "assets/images/rhombus.png",
+                  // width: MediaQuery.of(context).size.width * 0.5
+                ),
               ),
             ),
           ),
@@ -517,7 +474,7 @@ class ViewUserInputState extends State<ViewUserInput> {
           children: [
             Expanded(
               child: Text(
-                'Select up to 3 Specific Fields (Optional)',
+                'Select up to 3 specific fields (optional)',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -599,19 +556,24 @@ class ViewUserInputState extends State<ViewUserInput> {
         selectedItemBuilder: (context) {
           return business.map(
             (item) {
-              return Container(
-                alignment: AlignmentDirectional.center,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  selectedItems.join(', '),
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                    color: Colors.black,
+              return Row(
+                children: [
+                  Expanded(
+                    // alignment: AlignmentDirectional.center,
+                    // padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(
+                      selectedItems.join(', '),
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                        color: Colors.black,
+                      ),
+                      maxLines: 1,
+                    ),
                   ),
-                  maxLines: 1,
-                ),
+                ],
               );
             },
           ).toList();
@@ -627,34 +589,25 @@ class ViewUserInputState extends State<ViewUserInput> {
 }
 
 Widget _buildInfoHover() {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: const [
-      Padding(
-        padding: EdgeInsets.all(25.0),
-        child: Align(
-            alignment: Alignment.bottomRight,
-            child: Tooltip(
-              margin: EdgeInsets.only(right: 50),
-              // height: 200,
-              richMessage: WidgetSpan(
-                alignment: PlaceholderAlignment.baseline,
-                baseline: TextBaseline.alphabetic,
-                child: Text(
-                  "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
-                  style: TextStyle(fontSize: 14, color: Colors.white),
-                ),
+  return Padding(
+      padding: EdgeInsets.only(left: 15),
+      child: Align(
+          alignment: Alignment.bottomRight,
+          child: Tooltip(
+            margin: EdgeInsets.only(right: 50),
+            // height: 200,
+            richMessage: WidgetSpan(
+              alignment: PlaceholderAlignment.baseline,
+              baseline: TextBaseline.alphabetic,
+              child: Text(
+                "Welcome to the Passion Project Generator! \n \n This tool helps high school students discover \n numerous of potential passion project ideas that \n match their passions and interests. ",
+                style: TextStyle(fontSize: 14, color: Colors.white),
               ),
-              child: Icon(
-                Icons.info_outline_rounded,
-                color: Color.fromRGBO(62, 105, 178, 1.0),
-              ),
-              // shape: GFIconButtonShape.circle,
-              // color: Color.fromRGBO(
-              // 209, 219, 237, 1.0)),
-            )),
-      ),
-    ],
-  );
+            ),
+            child: Icon(
+              Icons.info_outline_rounded,
+              color: Color.fromRGBO(62, 105, 178, 1.0),
+              size: 20,
+            ),
+          )));
 }
