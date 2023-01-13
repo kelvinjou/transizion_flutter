@@ -4,10 +4,12 @@ import 'package:transizion_flutter/split_screen.dart';
 import 'package:transizion_flutter/view_output_connector.dart';
 import 'package:transizion_flutter/view_user_input.dart';
 import 'package:provider/provider.dart';
+import 'package:url_strategy/url_strategy.dart';
+
 
 
 void main() {
-  
+  setPathUrlStrategy();
   runApp(const MyApp());
   // final res = await DotEnv().env['API_KEY'];
   // debugPrint(res);
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
           home: SplitScreen()),
 
-      // MyHomePage())
+      // MyHomePage()) 
     );
   }
 }
