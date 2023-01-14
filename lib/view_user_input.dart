@@ -243,8 +243,8 @@ class ViewUserInputState extends State<ViewUserInput> {
                   GFButton(
                     onPressed: () {
                       if (formKey.currentState?.validate() == true &&
-                          careerPathController.text.isNotEmpty &&
-                          passionController.text.isNotEmpty) {
+                          careerPathFilledOut == true && 
+                          passionsFilledOut == true) {
                         setState(() {
                           ModelStateManagement.hobbies = hobbies;
                           ModelStateManagement.passions = passions;
@@ -256,25 +256,9 @@ class ViewUserInputState extends State<ViewUserInput> {
                               listen: false);
                           context.read<ModelStateManagement>().submitted();
                         });
-
-                        // split string:
-                        // String str =
-                        //     "1. Developing an App to Help Local Farms: The student could create a mobile app that allows local farmers to access resources and information on agricultural best practices, such as soil testing, irrigation methods, and pest control. The app could also provide market prices for produce and livestock, so the farmers can better understand their competition in the area. \n 2. Creating a Database of Chemical Reactions: The student could create a database of chemical reactions, with detailed explanations and illustrations for each one. This would help other students who are studying chemistry or engineering, as well as those interested in pursuing chemical engineering as a career. \n 3. Designing a Water Filtration System: The student could design a water filtration system for a local community. This project would involve researching different types of filtration systems, designing a prototype, and creating a plan for implementation. The student could then work with local officials to implement the plan and make sure the system is working properly.";
-                        // final split = str.split("\n");
-                        // final Map<int, String> values = {
-                        //   for (int i = 0; i < split.length; i++) i: split[i]
-                        // };
-
-                        // final value1 = values[0];
-                        // final value2 = values[1];
-                        // final value3 = values[2];
-
-                        // debugPrint("first res: $value1");
-                        // debugPrint("second res: $value2");
-                        // debugPrint("third res: $value3");
                       }
                     },
-                    text: "Generate Passion Project!",
+                    text: "  Generate Passion Project!  ",
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -298,7 +282,7 @@ class ViewUserInputState extends State<ViewUserInput> {
                         careerPathFilledOut == true && passionsFilledOut == true
                             ? const Color.fromRGBO(62, 105, 178, 0.98)
                             : const Color.fromRGBO(157, 191, 252, 0.7),
-                    size: 55,
+                    size: 60,
                   ),
                   Spacer(),
                   SizedBox(height: 100)
